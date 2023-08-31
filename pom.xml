@@ -22,54 +22,55 @@
     <!-- ... (resto del archivo, como los repositorios y demás) -->
 
     <dependencies>
-        <!-- ... (resto de las dependencias) -->
+    <!-- ... -->
+    <!-- Evita usar LATEST para las versiones -->
+    <dependency>
+        <groupId>org.modelmapper</groupId>
+        <artifactId>modelmapper</artifactId>
+        <version>2.4.4</version> <!-- Especifica una versión -->
+    </dependency>
+    <!-- ... -->
+    <dependency>
+        <groupId>org.springdoc</groupId>
+        <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+        <version>1.5.13</version> <!-- Especifica una versión -->
+    </dependency>
+    <!-- ... -->
+    <dependency>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>3.9.1.2184</version> <!-- Especifica una versión -->
+    </dependency>
+    <!-- ... -->
+</dependencies>
 
-        <!-- Especificar una versión concreta para modelmapper -->
-        <dependency>
-            <groupId>org.modelmapper</groupId>
-            <artifactId>modelmapper</artifactId>
-            <version>2.4.4</version> <!-- Cambiar esto a la versión que necesites -->
-        </dependency>
 
-        <!-- Especificar una versión concreta para springdoc-openapi-starter-webmvc-ui -->
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-            <version>1.6.3</version> <!-- Cambiar esto a la versión que necesites -->
-        </dependency>
-
-        <!-- Especificar una versión concreta para sonar-maven-plugin -->
-        <dependency>
-            <groupId>org.sonarsource.scanner.maven</groupId>
-            <artifactId>sonar-maven-plugin</artifactId>
-            <version>3.9.1.2184</version> <!-- Cambiar esto a la versión que necesites -->
-        </dependency>
-    </dependencies>
-
-    <build>
-        <finalName>app</finalName>
-        <plugins>
-            <!-- Solo necesitas una instancia de spring-boot-maven-plugin -->
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>build-info</id>
-                        <goals>
-                            <goal>build-info</goal>
-                        </goals>
-                        <configuration>
-                            <additionalProperties>
-                                <java.version>${java.version}</java.version>
-                                <description>${project.description}</description>
-                                <project.version>${project.version}</project.version>
-                            </additionalProperties>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <!-- ... (resto de los plugins) -->
-        </plugins>
-    </build>
+   <build>
+    <finalName>app</finalName>
+    <plugins>
+        <!-- ... -->
+        <!-- Mantén una única instancia del plugin spring-boot-maven-plugin -->
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <executions>
+                <execution>
+                    <id>build-info</id>
+                    <goals>
+                        <goal>build-info</goal>
+                    </goals>
+                    <configuration>
+                        <additionalProperties>
+                            <java.version>${java.version}</java.version>
+                            <description>${project.description}</description>
+                            <project.version>${project.version}</project.version>
+                        </additionalProperties>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+        <!-- ... -->
+    </plugins>
+</build>
+<!-- ... -->
 </project>
